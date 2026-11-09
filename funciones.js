@@ -287,3 +287,19 @@ function minutosLectura(texto, ppm = 200) {
   return Math.ceil(contarPalabras(texto) / ppm);
 }
 
+/* =========================================================
+ * Fase 4 · Validación de entradas
+ * ========================================================= */
+
+/**
+ * Comprueba si un texto escrito por el usuario es un número válido.
+ * Ojo: Number("") da 0, por eso el vacío se comprueba aparte.
+ * @param {string} texto - Texto leído de un campo.
+ * @returns {boolean} true si es un número; false si está vacío o no es un número.
+ */
+function esNumeroValido(texto) {
+  if (texto.trim() === "") {
+    return false;
+  }
+  return Number.isFinite(Number(texto));
+}

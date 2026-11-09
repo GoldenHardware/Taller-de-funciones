@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taller de funciones</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header>
+    <h1>Taller de funciones</h1>
+    <p>Cinco herramientas hechas con mis propias funciones · DWEC · 2º DAW</p>
+  </header>
+
+  <main>
+    <section class="herramienta">
+      <h2>1 · IVA y descuentos</h2>
+      <label>Precio (€) <input id="precio" type="text" placeholder="Ej: 100"></label>
+      <label>IVA (%) <input id="tipoIVA" type="text" placeholder="Vacío = 21"></label>
+      <label>Descuento (%) <input id="descuento" type="text" placeholder="Vacío = 0"></label>
+      <button id="btnIVA">Calcular</button>
+      <p class="resultado" id="resultadoIVA"></p>
+    </section>
+
+    <section class="herramienta">
+      <h2>2 · Conversor de temperaturas</h2>
+      <label>Valor <input id="temperatura" type="text" placeholder="Ej: 100"></label>
+      <label>De
+        <select id="unidadDe"><option value="C">°C</option><option value="F">°F</option></select>
+      </label>
+      <label>A
+        <select id="unidadA"><option value="F">°F</option><option value="C">°C</option></select>
+      </label>
+      <button id="btnTemperatura">Convertir</button>
+      <p class="resultado" id="resultadoTemperatura"></p>
+    </section>
+
+    <section class="herramienta">
+      <h2>3 · Validador de contraseñas</h2>
+      <label>Contraseña <input id="contrasena" type="text" placeholder="Escribe una contraseña"></label>
+      <button id="btnValidador">Evaluar</button>
+      <p class="resultado" id="resultadoValidador"></p>
+    </section>
+
+    <section class="herramienta">
+      <h2>4 · Generador de contraseñas</h2>
+      <label>Longitud (6-30) <input id="longitud" type="text" value="12"></label>
+      <label class="check"><input id="usarMayusculas" type="checkbox" checked> Mayúsculas</label>
+      <label class="check"><input id="usarNumeros" type="checkbox" checked> Números</label>
+      <button id="btnGenerador">Generar</button>
+      <p class="resultado mono" id="resultadoGenerador"></p>
+    </section>
+
+    <section class="herramienta">
+      <h2>5 · Contador de palabras</h2>
+      <label>Texto <textarea id="textoContar" rows="5" placeholder="Pega aquí un texto"></textarea></label>
+      <label>Palabras por minuto <input id="ppm" type="text" placeholder="Vacío = 200"></label>
+      <button id="btnContador">Contar</button>
+      <p class="resultado" id="resultadoContador"></p>
+    </section>
+
+  </main>
+
+  <script src="funciones.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

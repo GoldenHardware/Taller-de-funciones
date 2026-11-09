@@ -63,3 +63,13 @@ Las dos versiones de `aplicarDescuento` (normal y flecha) dan lo mismo: `aplicar
 
 2. **¿Cuál fue la más difícil?** `numeroAleatorio`. `Math.random()` da un número entre 0 (incluido) y 1 (sin incluir), así que hay que multiplicar por `max - min + 1` (no por `max - min`) para que el máximo también pueda salir, usar `Math.floor` y sumar `min`. Con `Math.round` los extremos saldrían la mitad de veces que el resto.
 
+## Fase 4 · Interfaz
+
+1. **¿Por qué el precio vacío no puede tratarse como 0?** Porque un campo vacío significa que el usuario se ha olvidado de escribirlo, no que el producto sea gratis. Si lo convertimos con `Number("")` saldría 0 y mostraríamos un total de 0,00 € como si fuera correcto. Con el IVA o el descuento sí hay un valor razonable por defecto (21 y 0), pero con el precio no, así que se muestra un error.
+
+2. **Tres funciones predefinidas usadas:**
+   - `Number()` para pasar el texto de los campos a número.
+   - `trim()` (dentro de `esNumeroValido`) para detectar campos vacíos o con solo espacios.
+   - `Number.isFinite()` para comprobar que el resultado es un número de verdad (descarta `NaN` e `Infinity`).
+   - (También `document.getElementById` y `addEventListener` para leer campos y conectar botones.)
+
