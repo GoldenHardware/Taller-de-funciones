@@ -81,3 +81,8 @@ Las dos versiones de `aplicarDescuento` (normal y flecha) dan lo mismo: `aplicar
 
 2. **¿Por qué no sirve una prueba que siempre pasa?** Porque no da información: si pasa tanto cuando el código está bien como cuando está mal, no detecta ningún error. Por eso se rompe el código a propósito, para comprobar que la prueba de verdad falla.
 
+## Fase 6 · Documentación y revisión
+
+Todas las funciones de `funciones.js` tienen comentario JSDoc (`/** ... */`, `@param`, `@returns`). Revisión: nombres descriptivos en español, sin código repetido (los manejadores usan `leer`, `mostrar` y `numeroOpcional`) y la consola sin errores.
+
+**Un error que me encontré:** la primera versión de `redondear` era `Number(numero.toFixed(decimales))`. Las pruebas pasaban con 2.567, pero `redondear(1.005)` daba `1` en vez de `1.01`. Puse un **breakpoint** dentro de la función en la pestaña Sources de las DevTools y miré el valor de `numero * 100` en el panel de variables: era `100.49999999999999`, porque 1.005 no se puede guardar exacto en binario, y por eso redondeaba hacia abajo. Lo arreglé desplazando la coma con notación exponencial: `Number(Math.round(numero + "e" + decimales) + "e-" + decimales)`. `"1.005e2"` se convierte exactamente en 100.5, se redondea a 101 y `"101e-2"` da 1.01.
