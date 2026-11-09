@@ -55,3 +55,11 @@ Tres más que conozco: `parseFloat("3.5kg")` → 3.5, `Math.max(3, 9, 1)` → 9,
 
 Las dos versiones de `aplicarDescuento` (normal y flecha) dan lo mismo: `aplicarDescuento(80, 25)` y `aplicarDescuentoFlecha(80, 25)` → 60.
 
+## Fase 3 · Funciones pequeñas
+
+1. **¿Qué funciones usa `evaluarContrasena`? ¿Y `generarContrasena`?**
+   `evaluarContrasena` usa `longitudSuficiente`, `tieneMayuscula`, `tieneMinuscula` y `tieneNumero`.
+   `generarContrasena` usa `caracterAleatorio`, que a su vez usa `numeroAleatorio` (y la predefinida `Math.random`). También usa `Number.isInteger` para validar la longitud.
+
+2. **¿Cuál fue la más difícil?** `numeroAleatorio`. `Math.random()` da un número entre 0 (incluido) y 1 (sin incluir), así que hay que multiplicar por `max - min + 1` (no por `max - min`) para que el máximo también pueda salir, usar `Math.floor` y sumar `min`. Con `Math.round` los extremos saldrían la mitad de veces que el resto.
+
