@@ -73,3 +73,11 @@ Las dos versiones de `aplicarDescuento` (normal y flecha) dan lo mismo: `aplicar
    - `Number.isFinite()` para comprobar que el resultado es un número de verdad (descarta `NaN` e `Infinity`).
    - (También `document.getElementById` y `addEventListener` para leer campos y conectar botones.)
 
+## Fase 5 · Pruebas
+
+`probar(descripcion, obtenido, esperado)` compara los valores (las listas con `JSON.stringify`), llama a `console.assert`, que solo escribe en consola cuando la condición es `false`, y guarda cada resultado en un array. El botón «Ejecutar pruebas» muestra cuántas pasan y la lista de las que fallan, y saca la tabla completa con `console.table`. Hay 70 pruebas: casos normales, casos límite (precio 0, texto vacío, longitud 3 y 31, -40 °C) y la del generador repetida 20 veces.
+
+1. **¿Qué fallo introduje y qué prueba lo detectó?** En `celsiusAFahrenheit` cambié el `+ 32` por `- 32`. Fallaron `celsiusAFahrenheit(100) → 212` (daba 148), `límite: -40 °C = -40 °F` y `convertirTemperatura(100, "C", "F") → 212`, porque esta usa la anterior. Lo arreglé y volvieron a pasar las 70.
+
+2. **¿Por qué no sirve una prueba que siempre pasa?** Porque no da información: si pasa tanto cuando el código está bien como cuando está mal, no detecta ningún error. Por eso se rompe el código a propósito, para comprobar que la prueba de verdad falla.
+
